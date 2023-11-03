@@ -45,4 +45,4 @@ fetch('http://localhost:3000/filmes')
     // Dispara o evento de mudança de categoria para preencher a lista inicialmente
     categoriaSelect.dispatchEvent(new Event('change'));
   })
-  .catch(error => console.error(error,"SERVIDOR DA API NÃO RESPONDEU")); // Trata erros na requisição
+  .catch(error => console.error(error,"SERVER DA API NÃO RESPONDEU")); // Trata erros na requisição
