@@ -1,0 +1,151 @@
+/* Estilos para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Azul claro */
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para o cabeçalho */
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Estilos para o seletor de categoria */
+#categoria {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Estilos para a lista de filmes */
+#lista-filmes {
+  list-style: none;
+  padding: 0;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#lista-filmes li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para os títulos dos filmes */
+#lista-filmes h2 {
+  font-size: 17px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+/* Estilos para as imagens dos filmes */
+.filme-image {
+  max-width: 90%;
+  height: auto; /* Altura ajustada automaticamente para manter a proporção */
+  
+}
+
+/* Estilos para os detalhes dos filmes (ano, gênero, descrição) */
+#lista-filmes p {
+  margin: 0;
+  font-size: 15px;
+  color: #666;
+}
+
+/* Estilo do botão de categoria */
+#categoria {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+
+
+.netflix-icon{
+  max-width: 40px; /* Ajuste o tamanho máximo desejado em pixels */
+  max-height: 40px; /* Ajuste o tamanho máximo desejado em pixels */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* styles.css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(80, 22, 22);
+  }
+  
+  h2 {
+    margin: 0;
+    color:rgb(121, 10, 40)
+    
+  }
+  
+  
+  p {
+    margin: 0;
+    color: rgb(34, 54, 54);
+  }
+  
+  select {
+    margin: 20px 0;
+    padding: 5px;
+  }
+  
+  img.filme-image {
+    width: 150px; /* Largura desejada */
+   /*height: auto; /* Altura ajustada automaticamente para manter a proporção */
+  
