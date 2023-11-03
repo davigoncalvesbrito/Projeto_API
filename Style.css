@@ -1,8 +1,11 @@
 /* Estilos para o corpo da página */
 body {
+  background-image: url("./felix-mooneeram-evlkOfkQ5rE-unsplash.jpg");/* clênio*/
+  background-position: center;
+  background-size: cover;
   font-family: Arial, sans-serif;
   background-color: #f0f8ff; /* Azul claro */
-  margin: 0;
+  margin: 0;  
   padding: 0;
 }
 
@@ -24,6 +27,7 @@ header {
 
 /* Estilos para a lista de filmes */
 #lista-filmes {
+  text-align: center;/*clênio*/
   list-style: none;
   padding: 0;
   display:flex;
@@ -50,7 +54,7 @@ header {
 
 /* Estilos para as imagens dos filmes */
 .filme-image {
-  max-width: 90%;
+  max-width: 100%;  /*clênio*/
   height: auto; /* Altura ajustada automaticamente para manter a proporção */
   
 }
@@ -76,7 +80,7 @@ header {
 .netflix-icon{
   max-width: 40px; /* Ajuste o tamanho máximo desejado em pixels */
   max-height: 40px; /* Ajuste o tamanho máximo desejado em pixels */
-  display: flex;
+  display:center;/*clênio*/
   flex-direction: column;
   align-items: center; /* Centraliza horizontalmente */
   justify-content: center; /* Centraliza verticalmente */
