@@ -1,6 +1,6 @@
 /* Estilos para o corpo da página */
 body {
-  background-image: url("./felix-mooneeram-evlkOfkQ5rE-unsplash.jpg");/* clênio*/
+  background-image: url("./img/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg");/* clênio*/
   background-position: center;
   background-size: cover;
   font-family: Arial, sans-serif;
@@ -86,12 +86,25 @@ header {
   justify-content: center; /* Centraliza verticalmente */
   text-align: center;
 }
+.pesquisa-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #fff;
+}
 
+#pesquisa {
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+}
 
-
-
-
-
+#pesquisa-icon {
+  width: 20px; /* Ajuste o tamanho desejado */
+  height: 20px; /* Ajuste o tamanho desejado */
+  cursor: pointer;
+}
 
 
 
