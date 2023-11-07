@@ -47,6 +47,7 @@ header {
 
 /* Estilos para os títulos dos filmes */
 #lista-filmes h2 {
+  font-family: 'Nunito', sans-serif; /* Defina 'Nunito' como a fonte e, em seguida, uma alternativa de fonte genérica, caso a fonte não esteja disponível. */
   font-size: 17px;
   margin: 0 0 10px;
   color: #333;
@@ -54,16 +55,19 @@ header {
 
 /* Estilos para as imagens dos filmes */
 .filme-image {
-  max-width: 100%;  /*clênio*/
+  max-width: 100%; /* Define a largura máxima para 100% da largura do contêiner pai */
+  max-height: 320px; /* Define a altura máxima desejada em pixels */
   height: auto; /* Altura ajustada automaticamente para manter a proporção */
   
 }
 
 /* Estilos para os detalhes dos filmes (ano, gênero, descrição) */
 #lista-filmes p {
+  font-family:Arial, Helvetica, sans-serif;
   margin: 0;
   font-size: 15px;
   color: #666;
+  text-align: left; /* Alinhar o texto à esquerda */
 }
 
 /* Estilo do botão de categoria */
@@ -77,15 +81,20 @@ header {
 
 
 
-.netflix-icon{
-  max-width: 40px; /* Ajuste o tamanho máximo desejado em pixels */
-  max-height: 40px; /* Ajuste o tamanho máximo desejado em pixels */
-  display:center;/*clênio*/
+.player-icon {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 10px 0; /* Espaço acima e abaixo dos ícones */
+}
+.assistir-link {
+  display: flex;
   flex-direction: column;
   align-items: center; /* Centraliza horizontalmente */
-  justify-content: center; /* Centraliza verticalmente */
   text-align: center;
 }
+
+
+
 .pesquisa-container {
   position: fixed;
   top: 0;
@@ -106,63 +115,9 @@ header {
   cursor: pointer;
 }
 
+#lista-filmes li:hover {
+  transform: translateY(-10px);
+  transition: transform 0.3s ease; /* Adiciona uma transição suave */
+}
 
 
-
-
-
-
-
-
-
-/* styles.css
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-  }
-  
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    background-color: #fff;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgb(80, 22, 22);
-  }
-  
-  h2 {
-    margin: 0;
-    color:rgb(121, 10, 40)
-    
-  }
-  
-  
-  p {
-    margin: 0;
-    color: rgb(34, 54, 54);
-  }
-  
-  select {
-    margin: 20px 0;
-    padding: 5px;
-  }
-  
-  img.filme-image {
-    width: 150px; /* Largura desejada */
-   /*height: auto; /* Altura ajustada automaticamente para manter a proporção */
-  
