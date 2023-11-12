@@ -1,6 +1,6 @@
 /* Estilos para o corpo da página */
 body {
-  background-image: url("./img/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg");/* clênio*/
+  background-image: url("");/* clênio*/
   background-position: center;
   background-size: cover;
   font-family: Arial, sans-serif;
@@ -121,3 +121,153 @@ header {
 }
 
 
+
+
+
+
+
+
+
+/* Estilos para a div de login */
+.login-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+
+
+/* Estilos para o formulário dentro da div de login */
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para os campos de entrada no formulário */
+#login-form label {
+  margin-bottom: 5px;
+}
+
+#login-form input {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para o botão de entrar */
+#login-form button {
+  padding: 8px;
+  background-color: #333; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto do botão */
+  border: none;
+  cursor: pointer;
+}
+
+#login-form button:hover {
+  background-color: #555; /* Cor de fundo do botão ao passar o mouse */
+}
+
+
+
+
+
+
+/* Seus estilos existentes */
+
+/* ... Outros estilos ... */
+
+.user-icon {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.login-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+
+/* Adicione este estilo para mostrar a div de login quando a classe 'mostrar-login' estiver presente */
+.login-container.mostrar-login {
+  display: block;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* ... Outros estilos ... */
+
+
+
+
+
+.cadastro-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+
+
+/* Estilos para o formulário dentro da div de login */
+#cadastro-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para os campos de entrada no formulário */
+#cadastro-form label {
+  margin-bottom: 5px;
+}
+
+#cadastro-form input {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para o botão de entrar */
+#cadastro-form button {
+  padding: 8px;
+  background-color: #333; /* Cor de fundo do botão */
+  color: #fff; /* Cor do texto do botão */
+  border: none;
+  cursor: pointer;
+}
+
+#cadastro-form button:hover {
+  background-color: #555; /* Cor de fundo do botão ao passar o mouse */
+}
+
+
+#logout-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; /* ou qualquer outra largura desejada */
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

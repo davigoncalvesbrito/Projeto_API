@@ -3,14 +3,25 @@
   <head>
     <title>Lista de Filmes</title>
     <link rel="stylesheet" type="text/css" href="./Style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"integrity="sha384-xplnqmnx8ajJdw8nY2eh4xq1Q9f0FSC6CzAA1j1EqJgV3w8lO2nq9tB4sDe3Mym+R"crossorigin="anonymous"  />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap" rel="stylesheet">
-
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-xplnqmnx8ajJdw8nY2eh4xq1Q9f0FSC6CzAA1j1EqJgV3w8lO2nq9tB4sDe3Mym+R"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-xplnqmnx8ajJdw8nY2eh4xq1Q9f0FSC6CzAA1j1EqJgV3w8lO2nq9tB4sDe3Mym+R"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="container">
-
       <select id="categoria">
         <option value="Todos">Todos</option>
         <!-- Categorias adicionadas dinamicamente aqui  -->
@@ -29,11 +40,66 @@
         <!-- Os filmes  adicionados dinamicamente aqui -->
       </ul>
     </div>
-    <li>
-     
+
+    <!-- Div de login -->
+    <div class="login-container" id="login-container">
+      <!-- Ícone para fechar a tela de login -->
+      <div class="close-icon" onclick="fecharLogin()">X</div>
+
+      <!-- Formulário de login -->
+      <div class="login-form" id="login-form">
+        <label for="username">Email:</label>
+        <input type="text" id="email-login" name="username" required />
+
+        <label for="password">Senha:</label>
+        <input type="password" id="senha-login" name="password" required />
+
+        <button type="submit" id="login-button" onclick="realizarLogin()">Login</button>
+
+
+        <!-- Link para mostrar o formulário de cadastro -->
+        <a href="#" onclick="mostrarCadastro()">inscrição</a>
+      </div>
+
+      <!-- Formulário de cadastro -->
+      <div class="cadastro-form" id="cadastro-form" style="display: none">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="senha-cadastro">Senha:</label>
+        <input
+          type="password"
+          id="senha-cadastro"
+          name="senha-cadastro"
+          required
+        />
+        
+        
+
+        <button type="button" onclick="realizarCadastro()">Cadastrar</button>
+
+        <!-- Link para voltar ao formulário de login -->
+        <div class="close-icon" onclick="fecharLogin()">X</div>
+      </div>
+    </div>
+
+    <!-- No ícone de usuário -->
+    <div class="user-icon" onclick="mostrarLogin()">
+      <img src="/img/user.png" alt="Usuário" width="40" height="40" />
+    </div>
+  
+    <!-- Seção de sair (inicialmente oculta) -->
+    <div class="logout-section" id="logout-section" style="display: none;">
+    <p>Bem-vindo, <span id="nome-usuario"></span></p>
+    <button onclick="realizarLogout()">Sair</button>
+    </div>
+
     
+    <script src="index.js"></script>
 
-
-    <script src="/index.js"></script>
+    
   </body>
 </html>
