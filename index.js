@@ -70,15 +70,13 @@ function requisicao_api() {
       const categorias = Array.from(new Set(data.map((filme) => filme.genero)));
 
       // Atualizar o seletor de categoria no HTML
-      const categoriaSelect = document.getElementById("categoria");
-      categoriaSelect.innerHTML = ""; // Limpa o seletor de categoria
-
-      const todasOpcoes = document.createElement("option");
-      todasOpcoes.value = "Todos";
-      todasOpcoes.text = "Todos";
+      const categoriaSelect = document.getElementById("categoria"); 
+      
+      const todasOpcoes = document.createElement("Todos");
       categoriaSelect.appendChild(todasOpcoes);
 
-      categorias.forEach((categoria) => {
+      // Filtrando as categorias  e exibindo dinamicamente no HTML
+      categorias.forEach((categoria) => { 
         const option = document.createElement("option");
         option.value = categoria;
         option.text = categoria;
