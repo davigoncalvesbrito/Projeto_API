@@ -1,92 +1,137 @@
 // Função para renderizar um filme na lista
-function renderizar_filmes(filme, listaFilmes) {
-  const filmeItem = document.createElement("li");
-  filmeItem.innerHTML = `  
-    <h2>${filme.titulo}</h2>
-    <img src="${filme.imagem}" alt="${filme.titulo}" class="filme-image" />
-    <p><strong>Lançamento:</strong> ${filme.lancamento}</p>
-    <p><strong>Gênero:</strong> ${filme.genero}</p>
-    <p><strong>Descrição:</strong> ${filme.descricao}</p>
-    <a href="${filme.ondeAssistir}" target="_blank" class="assistir-link">
-      <img src="./img/100213_windows_media_player_icon.png" class="player-icon">
-    </a>
-  `;
-  listaFilmes.appendChild(filmeItem);
-}
+// function renderizar_filmes(filme, listaFilmes) {
+//   const filmeItem = document.createElement("li");
+//   filmeItem.innerHTML = `  
+//     <h2>${filme.titulo}</h2>
+//     <img src="${filme.imagem}" alt="${filme.titulo}" class="filme-image" />
+//     <p><strong>Lançamento:</strong> ${filme.lancamento}</p>
+//     <p><strong>Gênero:</strong> ${filme.genero}</p>
+//     <p><strong>Descrição:</strong> ${filme.descricao}</p>
+//     <a href="${filme.ondeAssistir}" target="_blank" class="assistir-link">
+//       <img src="./img/100213_windows_media_player_icon.png" class="player-icon">
+//     </a>
+//   `;
+//   listaFilmes.appendChild(filmeItem);
+// }
 
 // Função para filtrar e exibir os filmes com base nos critérios
 function filtrar_exibir_filmes(body) {
   const listaFilmes = document.getElementById("lista-filmes");
-  const categoriaSelect = document.getElementById("categoria");
+  const categoriaSelect = document.getElementById("categoriasDropdown");
   const pesquisaInput = document.getElementById("pesquisa");
   const anoAtual = new Date().getFullYear();
 
-  // Event listener para mudança de categoria
-  categoriaSelect.addEventListener("change", () => {
-    const categoriaSelecionada = categoriaSelect.value;
-    const termoPesquisa = pesquisaInput.value.toLowerCase();
+  function renderizar_filmes(filme) {
+    const filmeItem = document.createElement("li");
+    filmeItem.innerHTML = `  
+      <h2>${filme.titulo}</h2>
+      <img src="${filme.imagem}" alt="${filme.titulo}" class="filme-image" />
+      <p><strong>Lançamento:</strong> ${filme.lancamento}</p>
+      <p><strong>Gênero:</strong> ${filme.genero}</p>
+      <p><strong>Descrição:</strong> ${filme.descricao}</p>
+      <a href="${filme.ondeAssistir}" target="_blank" class="assistir-link">
+        <img src="./img/100213_windows_media_player_icon.png" class="player-icon">
+      </a>
+    `;
+    listaFilmes.appendChild(filmeItem);
+  }
+
+  // Função para mostrar todos os filmes
+  function mostrarTodosFilmes() {
     listaFilmes.innerHTML = ""; // Limpa a lista de filmes para atualização
 
-    // Função para classificar os filmes por título em ordem alfabética
-    const ordenarPorTitulo = (a, b) => {
-      return a.titulo.localeCompare(b.titulo);
-    };
+    // Ordena os filmes por título em ordem alfabética
+    const filmesOrdenados = body.sort((a, b) => a.titulo.localeCompare(b.titulo));
 
-    // Ordenar os filmes por título antes de processá-los
-    body.sort(ordenarPorTitulo);
+    filmesOrdenados.forEach((filme) => renderizar_filmes(filme));
+  }
 
-    body.forEach((filme) => {
-      if (
+  // Event listener para mudança de categoria
+  categoriaSelect.addEventListener("click", (event) => {
+    const categoriaSelecionada = event.target.textContent;
+    const termoPesquisa = pesquisaInput.value.toLowerCase();
+
+    listaFilmes.innerHTML = ""; // Limpa a lista de filmes para atualização
+
+    // Filtra os filmes por categoria e pesquisa
+    const filmesFiltrados = body.filter((filme) => {
+      return (
         categoriaSelecionada === "Todos" ||
-        filme.genero === categoriaSelecionada ||
-        (categoriaSelecionada === "Lancamentos" &&
-          anoAtual - filme.lancamento <= 1)
-      ) {
-        if (filme.titulo.toLowerCase().includes(termoPesquisa)) {
-          // Filtro por título
-          renderizar_filmes(filme, listaFilmes);
-        }
-      }
+        (categoriaSelecionada === "Lançamentos" && anoAtual - filme.lancamento <= 1) ||
+        filme.genero === categoriaSelecionada
+      );
     });
+
+    // Filtra os filmes por pesquisa adicional
+    const filmesPesquisados = filmesFiltrados.filter((filme) => {
+      return filme.titulo.toLowerCase().includes(termoPesquisa);
+    });
+
+    // Ordena os filmes filtrados por título em ordem alfabética
+    const filmesOrdenados = filmesPesquisados.sort((a, b) => a.titulo.localeCompare(b.titulo));
+
+    // Renderiza os filmes ordenados
+    filmesOrdenados.forEach((filme) => renderizar_filmes(filme));
   });
 
   // Event listener para pesquisa por título ao digitar no campo
   pesquisaInput.addEventListener("input", () => {
-    categoriaSelect.dispatchEvent(new Event("change")); // Ativa o filtro de categoria com base na pesquisa
+    categoriaSelect.dispatchEvent(new Event("click")); // Ativa o filtro de categoria com base na pesquisa
   });
 
-  // Dispara o evento de mudança de categoria para preencher a lista inicialmente
-  categoriaSelect.dispatchEvent(new Event("change"));
+  // Ao carregar a página, mostra todos os filmes ordenados por título
+  mostrarTodosFilmes();
 }
+
+
+
+
+
+
 
 // Função para Realiza uma requisição e obter os dados dos filmes a partir da API
 function requisicao_api() {
   fetch("http://localhost:3000/filmes")
-    .then((response) => response.json()) // Converte a resposta em JSON
-    .then((data) => {
-      const body = data; // Os dados dos filmes
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // Adicione esta linha
+          const categoriasDropdown = document.getElementById("categoriasDropdown");
+          categoriasDropdown.innerHTML = ""; // Limpa o dropdown de categorias
 
-      // Extrair categorias únicas dos filmes
-      const categorias = Array.from(new Set(data.map((filme) => filme.genero)));
+          // Adiciona a opção "Todos"
+          const todasOpcoes = document.createElement("a");
+          todasOpcoes.classList.add("dropdown-item");
+          todasOpcoes.href = "#";
+          todasOpcoes.textContent = "Todos";
+          categoriasDropdown.appendChild(todasOpcoes);
 
-      // Atualizar o seletor de categoria no HTML
-      const categoriaSelect = document.getElementById("categoria"); 
-      
-      const todasOpcoes = document.createElement("Todos");
-      categoriaSelect.appendChild(todasOpcoes);
+          // Adiciona a opção "Lançamentos"
+          const lancamentosOption = document.createElement("a");
+          lancamentosOption.classList.add("dropdown-item");
+          lancamentosOption.href = "#";
+          lancamentosOption.textContent = "Lançamentos";
+          categoriasDropdown.appendChild(lancamentosOption);
 
-      // Filtrando as categorias  e exibindo dinamicamente no HTML
-      categorias.forEach((categoria) => { 
-        const option = document.createElement("option");
-        option.value = categoria;
-        option.text = categoria;
-        categoriaSelect.appendChild(option);
-      });
+          // Filtra e Adiciona as categorias dinamicamente
+          const categorias = Array.from(new Set(data.map((filme) => filme.genero)));
+          categorias.forEach((categoria) => {
+              const option = document.createElement("a");
+              option.classList.add("dropdown-item");
+              option.href = "#";
+              option.textContent = categoria;
+              categoriasDropdown.appendChild(option);
+          });
 
-      filtrar_exibir_filmes(body);
-    })
-    .catch((error) => console.error(error, "SERVIDOR DA API NÃO RESPONDEU")); // Trata erros na requisição
+
+          filtrar_exibir_filmes([...data]); // Usando o spread operator para criar uma cópia do array
+
+          
+      })
+      .catch((error) => console.error(error, "SERVIDOR DA API NÃO RESPONDEU"));
 }
+
+
+
 
 requisicao_api();
 
@@ -208,4 +253,5 @@ function realizarLogout() {
 function exibirNomeUsuario(nome) {
   document.getElementById('nome-usuario').textContent = nome;
 }
+
 
